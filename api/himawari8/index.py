@@ -20,7 +20,7 @@ class handler(BaseHTTPRequestHandler):
         ext = '_0_0.png'
 
         # 拼接出完整的卫星图 URL 地址
-        picture_url = 'https://himawari8-dl.nict.go.jp/himawari8/img/D531106/1d/550/' + date + hour + minute + second + ext
+        picture_url = 'https://himawari8-dl.nict.go.jp/himawari8/img/D531106/1d/2000/' + date + hour + minute + second + ext
         print(picture_url)
 
         # 发送 HTTP 响应头
