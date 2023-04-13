@@ -1,0 +1,23 @@
+{
+    "version": 2,
+    "builds": [ 
+        {
+            "src": "*.html",
+            "use": "@vercel/static"
+        }, 
+        {
+            "src": "api/*.py",
+            "use": "@vercel/python"
+        } 
+    ],
+    "routes": [
+        {
+            "src": "/",
+            "dest": "/index.html"
+        }, 
+        {
+            "src": "/api/hi8",
+            "dest": "/getHi8Image/index.py"
+        }
+    ]
+}
