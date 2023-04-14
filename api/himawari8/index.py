@@ -34,15 +34,31 @@ picture_url = 'https://himawari8-dl.nict.go.jp/himawari8/img/D531106/1d/550/' + 
     date + hour + minute + second + ext
 print(picture_url)
 
+# 向卫星图 URL 发送 HTTP 请求并获取响应结果
+res = requests.get(picture_url)
+
+# 四分片高清图
+hdPic1_url = 'https://himawari8-dl.nict.go.jp/himawari8/img/D531106/2d/550/' + \
+    date + hour + minute + second + '_0_0.png'
+hdPic2_url = 'https://himawari8-dl.nict.go.jp/himawari8/img/D531106/2d/550/' + \
+    date + hour + minute + second + '_0_1.png'
+hdPic3_url = 'https://himawari8-dl.nict.go.jp/himawari8/img/D531106/2d/550/' + \
+    date + hour + minute + second + '_1_0.png'
+hdPic4_url = 'https://himawari8-dl.nict.go.jp/himawari8/img/D531106/2d/550/' + \
+    date + hour + minute + second + '_1_1.png'
+
+hdPic1 = requests.get(hdPic1_url)
+hdPic2 = requests.get(hdPic2_url)
+hdPic3 = requests.get(hdPic3_url)
+hdPic4 = requests.get(hdPic4_url)
+
+
 class handler(BaseHTTPRequestHandler):
     def do_GET(self):
         # 发送 HTTP 响应头
         self.send_response(200)
         self.send_header('Content-type', 'image/png')
         self.end_headers()
-
-        # 向卫星图 URL 发送 HTTP 请求并获取响应结果
-        res = requests.get(picture_url)
 
         # 将获取到的卫星图作为响应内容返回给客户端
         self.wfile.write(res.content)
