@@ -87,6 +87,7 @@ class handler(BaseHTTPRequestHandler):
         # 发送 HTTP 响应头
         self.send_response(200)
         self.send_header('Content-type', 'image/png')
+        self.send_header('Cache-Control', 's-maxage=600')
         self.end_headers()
 
         # 将获取到的卫星图作为响应内容返回给客户端
