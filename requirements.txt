@@ -1,3 +1,4 @@
 flask==1.0.2
 requests
 pillow
+opencv-python
