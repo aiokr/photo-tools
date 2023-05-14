@@ -13,7 +13,6 @@ class MyHandler(BaseHTTPRequestHandler):
         quality = query.get('q', [''])[0]
 
         rawImage = BytesIO(requests.get(url).content)
-        image = cv.imread(rawImage)
 
         self.send_response(200)
         self.send_header('Content-type', 'image/png')
